@@ -1,0 +1,21 @@
+<?php
+
+Breadcrumbs::for('admin.$LOWER_NAME$.index', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__('$LOWER_NAME$::labels.backend.$LOWER_NAME$.management'), route('admin.$LOWER_NAME$.index'));
+});
+
+Breadcrumbs::for('admin.$LOWER_NAME$.create', function ($trail) {
+    $trail->parent('admin.$LOWER_NAME$.index');
+    $trail->push(__('$LOWER_NAME$::labels.backend.$LOWER_NAME$.create'), route('admin.$LOWER_NAME$.create'));
+});
+
+Breadcrumbs::for('admin.$LOWER_NAME$.show', function ($trail, $id) {
+    $trail->parent('admin.$LOWER_NAME$.index');
+    $trail->push(__('$LOWER_NAME$::labels.backend.$LOWER_NAME$.show'), route('admin.$LOWER_NAME$.show', $id));
+});
+
+Breadcrumbs::for('admin.$LOWER_NAME$.edit', function ($trail, $id) {
+    $trail->parent('admin.$LOWER_NAME$.index');
+    $trail->push(__('$LOWER_NAME$::labels.backend.$LOWER_NAME$.edit'), route('admin.$LOWER_NAME$.edit', $id));
+});

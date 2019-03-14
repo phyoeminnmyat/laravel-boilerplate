@@ -1,0 +1,39 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Illuminate\Routing\Controller;
+use DataTables;
+use Modules\$STUDLY_NAME$\Repositories\$STUDLY_NAME$Repository;
+use Modules\$STUDLY_NAME$\Http\Requests\Manage$STUDLY_NAME$Request;
+
+class $STUDLY_NAME$TableController extends Controller
+{
+    /**
+     * @var $STUDLY_NAME$Repository
+     */
+    protected $$LOWER_NAME$;
+
+    /**
+     * @param $STUDLY_NAME$Repository $$LOWER_NAME$
+     */
+    public function __construct($STUDLY_NAME$Repository $$LOWER_NAME$)
+    {
+        $this->$LOWER_NAME$ = $$LOWER_NAME$;
+    }
+
+    /**
+     * @param Manage$STUDLY_NAME$Request $request
+     *
+     * @return mixed
+     */
+    public function __invoke(Manage$STUDLY_NAME$Request $request)
+    {
+        return Datatables::of($this->$LOWER_NAME$->getForDataTable())
+            ->addColumn('actions', function ($$LOWER_NAME$) {
+                return $$LOWER_NAME$->action_buttons;
+            })
+            ->rawColumns(['actions'])
+            ->make(true);
+    }
+}

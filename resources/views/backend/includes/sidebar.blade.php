@@ -43,6 +43,52 @@
                 </li>
             @endif
 
+            @foreach(Module::group() as $module)
+
+                @if($module->enabled())
+                    <?php 
+                        $module = $module->getLowerName();
+                        $route = 'admin.'.$module.'.index';
+                        $active = 'admin/'.$module.'*';
+                        $mod_trans = $module.'::menus.backend.sidebar.'.$module;
+                    ?>
+                    @can('manage '.$module)
+                        @if($module == "recyclebin")
+                        <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern($active), 'open') }}">
+                            <a class="nav-link nav-dropdown-toggle" href="#">
+                                <i class="{{ config($module.'.icon') }}"></i> {{ trans($mod_trans) }}
+                            </a>
+
+                            <ul class="nav-dropdown-items">
+                            @foreach(Module::getOrdered() as $submodule)
+                                @can('manage '.$submodule->getLowerName())
+                                    @if($submodule->enabled() && !in_array($submodule->getLowerName(),config('backend.ignored_bin')))
+                                    <?php 
+                                        $mod_sub_trans = $submodule->getLowerName().'::menus.backend.sidebar.'.$submodule->getLowerName().'_bin';
+                                        $active = url('/admin/recyclebin?submodule='.$submodule->getName());
+                                    ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ (Request::fullUrl() == $active) ? 'active' : '' }}" href="{{ route($route,['submodule' => $submodule->getName() ]) }}">
+                                            {{ trans($mod_sub_trans) }}
+                                        </a>
+                                    </li>
+                                    @endif
+                                @endcan
+                            @endforeach
+                            </ul>
+                        </li>
+                        @else
+                            <li class="nav-item">
+                              <a class="nav-link {{ active_class(Active::checkUriPattern($active)) }}" href="{{ route($route) }}">
+                                 <i class="{{ config($module.'.icon') }}"></i>
+                                 <span style="padding-left: 12px;">{{ trans($mod_trans) }}</span>
+                              </a>
+                            </li>
+                        @endif
+                    @endcan
+                @endif
+            @endforeach
+
             <li class="divider"></li>
 
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'open') }}">

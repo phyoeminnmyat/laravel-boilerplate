@@ -1,0 +1,36 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Labels Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are used in labels throughout the system.
+    | Regardless where it is placed, a label can be listed here so it is easily
+    | found in a intuitive way.
+    |
+    */
+  'backend' => [
+                '$LOWER_NAME$' => [
+                    'create'     => 'Create $STUDLY_NAME$',
+                    'edit'       => 'Edit $STUDLY_NAME$',
+                    'management' => '$STUDLY_NAME$ Management',
+                    'list'       => '$STUDLY_NAME$ List',
+                    'show'       => '$STUDLY_NAME$ Detail',
+
+                    'table' => [
+                        'number_of_users' => 'Number of $STUDLY_NAME$s',
+                        'sort'             => 'Sort',
+                        'id'               => 'ID',
+                        'name'             => 'Name',
+                        'description'      => 'Description',
+                        'created'          => 'Created',
+                        'last_updated'     => 'Last Updated',
+                        'total'            => '$LOWER_NAME$ total|$LOWER_NAME$ total',
+                    ]
+                ]
+            ]
+
+];

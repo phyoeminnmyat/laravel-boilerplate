@@ -1,0 +1,25 @@
+{
+    "name": "zawmyolatt/appsetting",
+    "description": "",
+    "authors": [
+        {
+            "name": "Zaw Myo Latt",
+            "email": "zawmyolatt.ucsy@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\AppSetting\\Providers\\AppSettingServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\AppSetting\\": ""
+        }
+    }
+}

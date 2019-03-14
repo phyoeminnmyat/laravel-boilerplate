@@ -1,0 +1,106 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
+
+use Modules\$STUDLY_NAME$\Entities\$STUDLY_NAME$;
+use Modules\$STUDLY_NAME$\Http\Requests\Manage$STUDLY_NAME$Request;
+use Modules\$STUDLY_NAME$\Http\Requests\Create$STUDLY_NAME$Request;
+use Modules\$STUDLY_NAME$\Http\Requests\Update$STUDLY_NAME$Request;
+use Modules\$STUDLY_NAME$\Http\Requests\Show$STUDLY_NAME$Request;
+use Modules\$STUDLY_NAME$\Repositories\$STUDLY_NAME$Repository;
+
+class $CLASS$ extends Controller
+{
+ /**
+     * @var $STUDLY_NAME$Repository
+     * @var CategoryRepository
+     */
+    protected $$LOWER_NAME$;
+
+    /**
+     * @param $STUDLY_NAME$Repository $$LOWER_NAME$
+     */
+    public function __construct($STUDLY_NAME$Repository $$LOWER_NAME$)
+    {
+        $this->$LOWER_NAME$ = $$LOWER_NAME$;
+    }
+    /**
+     * Display a listing of the resource.
+     * @return Response
+     */
+    public function index()
+    {
+        return view('$LOWER_NAME$::index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     * @return Response
+     */
+    public function create()
+    {
+        return view('$LOWER_NAME$::create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param  Request $request
+     * @return Response
+     */
+    public function store(Create$STUDLY_NAME$Request $request)
+    {
+        $this->$LOWER_NAME$->create($request->except('_token','_method'));
+        return redirect()->route('admin.$LOWER_NAME$.index')->withFlashSuccess(trans('$LOWER_NAME$::alerts.backend.$LOWER_NAME$.created'));
+    }
+
+    /**
+     * @param $STUDLY_NAME$              $$LOWER_NAME$
+     * @param Manage$STUDLY_NAME$Request $request
+     *
+     * @return mixed
+     */
+    public function edit($STUDLY_NAME$ $$LOWER_NAME$, Manage$STUDLY_NAME$Request $request)
+    {
+        return view('$LOWER_NAME$::edit')
+            ->with$STUDLY_NAME$($$LOWER_NAME$);
+    }
+
+    /**
+     * @param $STUDLY_NAME$              $$LOWER_NAME$
+     * @param Update$STUDLY_NAME$Request $request
+     *
+     * @return mixed
+     */
+    public function update($STUDLY_NAME$ $$LOWER_NAME$, Update$STUDLY_NAME$Request $request)
+    {
+        $this->$LOWER_NAME$->updateById($$LOWER_NAME$->id,$request->except('_token','_method'));
+
+        return redirect()->route('admin.$LOWER_NAME$.index')->withFlashSuccess(trans('$LOWER_NAME$::alerts.backend.$LOWER_NAME$.updated'));
+    }
+
+    /**
+     * @param $STUDLY_NAME$              $$LOWER_NAME$
+     * @param Manage$STUDLY_NAME$Request $request
+     *
+     * @return mixed
+     */
+    public function show($STUDLY_NAME$ $$LOWER_NAME$, Show$STUDLY_NAME$Request $request)
+    {
+        return view('$LOWER_NAME$::show')->with$STUDLY_NAME$($$LOWER_NAME$);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * @return Response
+     */
+    public function destroy($STUDLY_NAME$ $$LOWER_NAME$)
+    {
+        $this->$LOWER_NAME$->deleteById($$LOWER_NAME$->id);
+
+        return redirect()->route('admin.$LOWER_NAME$.index')->withFlashSuccess(trans('$LOWER_NAME$::alerts.backend.$LOWER_NAME$.deleted'));
+    }
+}

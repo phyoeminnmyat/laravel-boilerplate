@@ -25,7 +25,8 @@
         "spatie/laravel-html": "^2.4",
         "spatie/laravel-permission": "^2.5",
         "torann/geoip": "^1.0",
-        "webpatser/laravel-uuid": "^3.0"
+        "webpatser/laravel-uuid": "^3.0",
+        "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -50,7 +51,9 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Nwidart\\Modules\\": "packages/nwidart/laravel-modules/src/",
+            "Modules\\": "Modules/"
         },
         "files": [
             "app/helpers.php"
