@@ -1,0 +1,25 @@
+{
+    "name": "zawmyolatt/customer",
+    "description": "",
+    "authors": [
+        {
+            "name": "Zaw Myo Latt",
+            "email": "zawmyolatt.ucsy@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Customer\\Providers\\CustomerServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Customer\\": ""
+        }
+    }
+}

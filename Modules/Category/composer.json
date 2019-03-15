@@ -1,0 +1,25 @@
+{
+    "name": "zawmyolatt/category",
+    "description": "",
+    "authors": [
+        {
+            "name": "Zaw Myo Latt",
+            "email": "zawmyolatt.ucsy@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Category\\Providers\\CategoryServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Category\\": ""
+        }
+    }
+}
