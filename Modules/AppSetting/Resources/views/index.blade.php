@@ -157,12 +157,6 @@
 
                             <div class="mb-5">
                                 <div class="card card-accent-primary">
-                                    @include('appsetting::includes.bnf_topup')
-                                </div>
-                            </div>
-
-                            <div class="mb-5">
-                                <div class="card card-accent-primary">
                                     @include('appsetting::includes.paypal')
                                 </div>
                             </div>

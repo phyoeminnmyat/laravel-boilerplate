@@ -7,7 +7,7 @@
 @endsection
 
 @push('after-styles')
-<link rel="stylesheet" type="text/css" href="/assets/bootstrap-summernote/css/summernote.css">
+<!-- <link rel="stylesheet" type="text/css" href="/assets/bootstrap-summernote/css/summernote.css"> -->
 @endpush
 
 @section('content')
@@ -128,20 +128,15 @@
 @endsection
 
 @push('after-scripts')
-<script src="/assets/bootstrap-summernote/js/summernote.min.js"></script>
-
-
+<!-- <script src="/assets/bootstrap-summernote/js/summernote.min.js"></script> -->
 <script>
 
 $(document).ready( function () {
     $('.select2').select2();
 
-     $('.summer_note').summernote({
-                height: 300
-            });
+    $('.summer_note').summernote({
+        height: 300
     });
-
-   
-
+});
 </script>
 @endpush

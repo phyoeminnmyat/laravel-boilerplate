@@ -57,7 +57,7 @@
 
                         <div class="col-md-10">
                             {{ html()->textarea('description')
-                                ->class('form-control')
+                                ->class('form-control summer_note')
                                 ->placeholder(__('category::labels.backend.category.table.description'))
                                 }}
                         </div><!--col-->
@@ -67,10 +67,10 @@
                             {{ html()->label(__('category::labels.backend.category.table.status').' *')->class('col-md-2 form-control-label')->for('status') }}
 
                                 <div class="col-md-10">
-                                    {{ html()->checkbox('status')
-                                        ->value(1)
-                                        ->class('form-control')
-                                    }}
+                                    <label class="switch switch-label switch-pill switch-primary">
+                                        {{ html()->checkbox('status', true, '1')->class('switch-input') }}
+                                        <span class="switch-slider" data-checked="yes" data-unchecked="no"></span>
+                                    </label>
                                 </div><!--col-->
                     </div><!--form-group-->
 
@@ -103,7 +103,12 @@
 @push('after-scripts')
 
 <script>
+$(document).ready( function () {
 
+    $('.summer_note').summernote({
+        height: 300
+    });
+});
 
 </script>
 @endpush
